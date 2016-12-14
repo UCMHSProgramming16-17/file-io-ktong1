@@ -1,5 +1,6 @@
 #import module
 import csv
+import math
 
 #create file
 csvfile = open("trial2.csv", "w")
@@ -7,12 +8,12 @@ csvfile = open("trial2.csv", "w")
 #create csvwriter
 csvwriter = csv.writer(csvfile, delimiter = ",")
 
-#write infomation 10 x
-for x in range(100):
-    csvwriter.writerow(['1','2', '3', '4'])
-    
-# write more info
-csvwriter.writerow(['a', 'b', 'c', 'd'])
+csvwriter.writerow(['a','b','theta in radians'])
+#write infomation
+for a in range(1, 100):
+    for b in range(a, 100):
+        theta = math.atan(b/a)
+        csvwriter.writerow([a, b, theta])
 
 #close file
 csvfile.close()
