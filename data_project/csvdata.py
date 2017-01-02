@@ -15,4 +15,23 @@ def collectdata():
     url_naturalgas = "http://api.eia.gov/series/?api_key=YOUR_API_KEY_HERE&series_id=TOTAL.NGELPUS.M"
     url_oil = "http://api.eia.gov/series/?api_key=YOUR_API_KEY_HERE&series_id=TOTAL.PAPRPUS.M"
     
+    # Insert EIA API key into url
+    url_renewable.replace("YOUR_API_KEY_HERE", EIA_APIkey)
+    url_nuclear.replace("YOUR_API_KEY_HERE", EIA_APIkey)
+    url_naturalgas.replace("YOUR_API_KEY_HERE", EIA_APIkey)
+    url_oil.replace("YOUR_API_KEY_HERE", EIA_APIkey)
+    
+    # Send data requests and store in a variable
+    json_renewable = requests.get(url_renewable)
+    json_nuclear = requests.get(url_nuclear)
+    json_naturalgas = requests.get(url_naturalgas)
+    json_oil = requests.get(url_oil)
+    
+    # Convert from json into python
+    renewable_data = json_renewable.json()
+    nuclear_data = json_nuclear.json()
+    naturalgas_data = json_naturalgas.json()
+    oil_data = json_oil.json()
+    
+    # Put data into csv files
     
