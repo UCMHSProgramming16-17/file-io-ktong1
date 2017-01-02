@@ -16,10 +16,10 @@ def collectdata():
     url_oil = "http://api.eia.gov/series/?api_key=YOUR_API_KEY_HERE&series_id=TOTAL.PAPRPUS.M"
     
     # Insert EIA API key into url
-    url_renewable.replace("YOUR_API_KEY_HERE", EIA_APIkey)
-    url_nuclear.replace("YOUR_API_KEY_HERE", EIA_APIkey)
-    url_naturalgas.replace("YOUR_API_KEY_HERE", EIA_APIkey)
-    url_oil.replace("YOUR_API_KEY_HERE", EIA_APIkey)
+    url_renewable = url_renewable.replace("YOUR_API_KEY_HERE", EIA_APIkey)
+    url_nuclear = url_nuclear.replace("YOUR_API_KEY_HERE", EIA_APIkey)
+    url_naturalgas = url_naturalgas.replace("YOUR_API_KEY_HERE", EIA_APIkey)
+    url_oil = url_oil.replace("YOUR_API_KEY_HERE", EIA_APIkey)
     
     # Send data requests and store in a variable
     json_renewable = requests.get(url_renewable)
@@ -35,3 +35,6 @@ def collectdata():
     
     # Put data into csv files
     
+    print (oil_data)
+
+collectdata()
