@@ -92,7 +92,7 @@ def storedata(data1, data2, data3, type1, type2, type3, csvtitle):
     # Put data into csv files
     csvwriter.writerow(['Year', 'Month', type1 + ' (kJ)', type2 + ' (kJ)', type3 + ' (kJ)'])
     for a in data1:
-        csvwriter.writerow(a[0][0:3], a[0][4:5], a[1], data2[a][1], data3[a][1])
+        csvwriter.writerow([a[0][0:4], a[0][4:6], a[1], data2[data1.index(a)][1], data3[data1.index(a)][1]])
 
 # Call all functions
 storedata(collectdata_renewable(), collectdata_nuclear(), collectdata_naturalgas(), 'Renewable Energy', 'Nuclear Energy', 'Natural Gas Energy', 'energydata.csv')
