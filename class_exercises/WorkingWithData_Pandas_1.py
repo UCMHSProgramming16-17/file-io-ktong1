@@ -40,3 +40,5 @@ df.iloc['2']
 df[2:5]
 # find all rows for which the following is true
 df[df['D'] < 0]
+# sort by this
+df.sort_index[by='A']
